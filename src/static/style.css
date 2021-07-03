@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: sans-serif;
+
+    background: chartreuse;
+}
+
+body > * {
+    max-width: 900px;
+}
+
+form {
+    display: flex;
+    border: 1px dashed blue;
+    border-radius: 20px;
+    padding: 1em;
+    background: red;
+    color: wheat;
+}
+
+form > div:first-child {
+    border-right: 1px solid black;
+    padding-right: 1em;
+    width: 50%;
+}
+
+form > div:last-child {
+    padding-left: 1em;
+    flex: 1;
+}
+
+form:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+h2 {
+    color: magenta;
+    font-weight: bold;
+    text-shadow: darkturquoise 2px 2px 1px;
+}
