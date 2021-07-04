@@ -5,24 +5,27 @@ body {
 
     font-family: sans-serif;
 
-    background: chartreuse;
+    background: #ffb700;
 }
 
 body > * {
     max-width: 900px;
 }
 
+p {
+    display: inline-block;
+}
 form {
     display: flex;
-    border: 1px dashed blue;
+    border: 2px dashed #000000;
     border-radius: 20px;
     padding: 1em;
-    background: red;
-    color: wheat;
+    background: #ffffff;
+    color: #ffb700;
 }
 
 form > div:first-child {
-    border-right: 1px solid black;
+    border-right: 2px dashed #000000;
     padding-right: 1em;
     width: 50%;
 }
@@ -32,13 +35,120 @@ form > div:last-child {
     flex: 1;
 }
 
-form:hover {
-    text-decoration: underline;
+h2 {
+    color: #000000;
+    font-weight: bold;
+}
+
+span {
+    font-size: 1.6em;
+}
+
+hr {
+    background: #ffffff;
+    border-top: 2px dashed #000000;
+}
+
+#container_checkbox {
+    margin:0 auto; /* centrage horizontal */
+}
+.checkbox_titre {
+    font-weight:normal;
+}
+.checkbox_box {
+    float: left;
+    width:100%; /* 2 colonnes */
+}
+.checkbox_box p {
+    clear:both;
+    height: 10px;
+}
+.checkbox_box p label {
+    float: left;
+    text-align:center ;
+    margin-right: 20px;
+    width: 120px;
+}
+
+label {
+    text-align: center
+}
+.checkbox_box p input {
+    float: left;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="checkbox"].allergen {
+    display: none;
+}
+input[type="checkbox"].allergen + label {
+    border: 1px solid transparent;
+}
+input[type="checkbox"].allergen:checked + label {
+    border: 1px solid #ffb700;
+    border-radius: 10px;
+    background: #ffb700;
+    color: black;
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+
+.custom-select select {
+    display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+    background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
 }
 
-h2 {
-    color: magenta;
-    font-weight: bold;
-    text-shadow: darkturquoise 2px 2px 1px;
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
 }

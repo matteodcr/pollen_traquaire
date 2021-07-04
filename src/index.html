@@ -10,49 +10,90 @@
     <h1>Pollen-Traquaire</h1>
     <p>Le site qui simplifie votre vie en terme de douille pollinique</p>
     <form action="/resultat">
-        <div>
-            <h2>1. Choisir un/des pollen</h2>
-            <label for="1">Cupressacées</label>
-            <input type="checkbox" name="cupressacees" id="1">
-            <label for="2">Saule</label>
-            <input type="checkbox" name="saule" id="2">
-            <label for="3">Frène</label>
-            <input type="checkbox" name="frene" id="3">
-            <label for="4">Peuplier</label>
-            <input type="checkbox" name="peuplier" id="4">
-            <label for="5">Charme</label>
-            <input type="checkbox" name="charme" id="5">
-            <label for="6">Bouleau</label>
-            <input type="checkbox" name="bouleau" id="6">
-            <label for="7">Platane</label>
-            <input type="checkbox" name="platane" id="7">
-            <label for="8">Chêne</label>
-            <input type="checkbox" name="chene" id="8">
-            <label for="9">Graminées</label>
-            <input type="checkbox" name="graminees" id="9">
-            <label for="10">Oseille</label>
-            <input type="checkbox" name="oseille" id="10">
-            <label for="11">Urticacées</label>
-            <input type="checkbox" name="urticacees" id="11">
-            <label for="12">Aulne</label>
-            <input type="checkbox" name="aulne" id="12">
-            <label for="13">Noisetier</label>
-            <input type="checkbox" name="noisetier" id="13">
-            <label for="14">Plantain</label>
-            <input type="checkbox" name="plantain" id="14">
-            <label for="15">Olivier</label>
-            <input type="checkbox" name="olivier" id="15">
-            <label for="16">Ambroisie</label>
-            <input type="checkbox" name="ambroisie" id="16">
-            <label for="17">Tilleul</label>
-            <input type="checkbox" name="tilleul" id="17">
+        <div id="container_checkbox">
+            <div class="checkbox_titre">
+                <h2><span>1.</span> Choisir un/des pollen</h2>
+            </div>
+            <div class="checkbox_box">
+                <p>
+                    <input id="1" type="checkbox" class="allergen" name="cupressacees" value="Cupressacées"/>
+                    <label for="1">Cupressacées</label>
+
+                </p>
+                <p>
+                    <input id="2" type="checkbox" class="allergen" name="saule" value="Saule"/>
+                    <label for="2">Saule</label>
+
+                </p>
+                <p>
+                    <input id="3" type="checkbox" class="allergen"  name="frene" value="Frène"/>
+                    <label for="3">Frène</label>
+                </p>
+                <p>
+                    <input id="4" type="checkbox" class="allergen"  name="peuplier" value="Peuplier"/>
+                    <label for="4">Peuplier</label>
+
+                </p>
+                <p>
+                    <input id="5" type="checkbox" class="allergen"  name="charme" value="Charme"/>
+                    <label for="5">Charme</label>
+                </p>
+                <p>
+                    <input id="6" type="checkbox" class="allergen"  name="bouleau" value="Bouleau"/>
+                    <label for="6">Bouleau</label>
+                </p>
+                <p>
+                    <input id="7" type="checkbox" class="allergen"  name="platane" value="Platane"/>
+                    <label for="7">Platane</label>
+                </p>
+                <p>
+                    <input id="8" type="checkbox" class="allergen"  name="chene" value="Chêne"/>
+                    <label for="8">Chêne</label>
+                </p>
+                <p>
+                    <input id="9" type="checkbox" class="allergen"  name="graminees" value="Graminées"/>
+                    <label for="9">Graminées</label>
+                </p>
+              </div>
+            <div class="checkbox_box">
+                <p>
+                    <input id="10" type="checkbox" class="allergen"  name="oseille" value="Oseille"/>
+                    <label for="10">Oseille</label>
+                </p>
+                <p>
+                    <input id="11" type="checkbox" class="allergen"  name="urticacees" value="Urticacées"/>
+                    <label for="11">Urticacées</label>
+                </p>
+                <p>
+                    <input id="12" type="checkbox" class="allergen"  name="aulne" value="Aulne"/>
+                    <label for="12">Aulne</label>
+                </p>
+                <p>
+                    <input id="13" type="checkbox" class="allergen"  name="noisetier" value="Noisetier"/>
+                    <label for="13">Noisetier</label>
+                </p>
+                <p>
+                    <input id="14" type="checkbox" class="allergen"  name="plantain" value="Plantain"/>
+                    <label for="14">Plantain</label>
+                </p>
+                <p>
+                    <input id="15" type="checkbox" class="allergen"  name="olivier" value="Olivier"/>
+                    <label for="15">Olivier</label>
+                </p>
+                <p>
+                    <input id="16" type="checkbox" class="allergen"  name="ambroisie" value="Ambroisie"/>
+                    <label for="16">Ambroisie</label>
+                </p>
+                <p>
+                    <input id="17" type="checkbox" class="allergen"  name="tilleul" value="Tilleul"/>
+                    <label for="17">Tilleul</label>
+                </p>
+              </div>
+            </div>
         </div>
-        <div>
-            <h2>2. Choisir un département</h2>
-            <label for="Departement">
-                Veuillez séléctionner votre département
-            </label>
-            <select name="county" id="Departement">
+        <div style="justify-content: center">
+            <h2><span>2.</span> Choisir un département</h2>
+            <select style="justify-content:center" name="county" id="Departement">
                 <option value="1">1 - Ain</option>
                 <option value="2">2 - Aisne</option>
                 <option value="3">3 - Allier</option>
@@ -151,9 +192,8 @@
                 <option value="95">95 - Val-d'Oise</option>
                 <option value="99">Andorre</option>
             </select>
-            <hr>
-            <h2>3. Et <input type="submit" value="on valide"></h2>
-            <img src="https://i.pinimg.com/originals/11/ae/ab/11aeab49a9e2a6d7d65a66eaf84777c2.gif">
+            <hr >
+            <h2><span>3.</span>  Et <input type="submit" value="on valide"></h2>
         </div>
     </form>
 </body>
