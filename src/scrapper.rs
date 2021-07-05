@@ -15,8 +15,8 @@ fn de_str_as_json<'de, D: Deserializer<'de>, T: DeserializeOwned>(
     deserializer: D,
 ) -> Result<T, D::Error> {
     use serde::de::Error;
-    let str = String::deserialize(deserializer)?;
-    serde_json::from_str(&str).map_err(D::Error::custom)
+    let str = std::borrow::Cow::<str>::deserialize(deserializer)?;
+    serde_json::from_str(str.as_ref()).map_err(D::Error::custom)
 }
 
 #[derive(serde::Deserialize, Debug)]
