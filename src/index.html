@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <img src="static/logo.png" style="height: 4em">
     <h1>Pollen-Traquaire</h1>
     <p>Le site qui simplifie votre vie en terme de douille pollinique</p>
     <form action="/resultat">
-        <div id="container_checkbox">
-            <div class="checkbox_titre">
+        <div class="choose">
+        <div class="step">
+            <div class="title">
                 <h2><span>1.</span> Choisir un/des pollen</h2>
             </div>
-            <div class="checkbox_box">
+            <div class="champ_checkbox">
                 <p>
                     <input id="1" type="checkbox" class="allergen" name="cupressacees"/>
                     <label for="1">Cupressacées</label>
@@ -52,8 +54,7 @@
                     <input id="9" type="checkbox" class="allergen"  name="graminees"/>
                     <label for="9">Graminées</label>
                 </p>
-              </div>
-            <div class="checkbox_box">
+
                 <p>
                     <input id="10" type="checkbox" class="allergen"  name="oseille"/>
                     <label for="10">Oseille</label>
@@ -80,7 +81,7 @@
                 </p>
                 <p>
                     <input id="16" type="checkbox" class="allergen"  name="ambroisie"/>
-                    <label for="16">Ambroisie</label>
+                    <label for="16">Ambroisies</label>
                 </p>
                 <p>
                     <input id="17" type="checkbox" class="allergen"  name="tilleul"/>
@@ -88,10 +89,12 @@
                 </p>
               </div>
             </div>
-        <div style="justify-content: center">
-            <h2><span>2.</span> Choisir un département</h2>
-            <label for="Departement">Ici</label>
-            <select style="justify-content:center" name="county" id="Departement">
+        <div class="step">
+            <div class="title">
+                <h2><span>2.</span> Choisir un département</h2>
+            </div>
+            <div class="champ">
+            <select class="select-style" name="county" id="Departement">
                 <option value="1">1 - Ain</option>
                 <option value="2">2 - Aisne</option>
                 <option value="3">3 - Allier</option>
@@ -190,9 +193,15 @@
                 <option value="95">95 - Val-d'Oise</option>
                 <option value="99">Andorre</option>
             </select>
-            <hr >
-            <h2><span>3.</span>  Et <input type="submit" value="on valide"></h2>
+            </div>
+            <hr>
+        </div>
+        </div>
+        <div class="validation">
+            <input type="submit" value="✔">
         </div>
     </form>
+
+
 </body>
 </html>

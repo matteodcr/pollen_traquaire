@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="static/style.css">
+
+<h4 style="font-size: 32px; font-size: 40px; font-family: 'Kaushan Script', cursive; margin: 0.5em">{{county}}</h4>
+    <div class="gauge">
+        <div class="gauge__body">
+        {% if county_risk == 1  %}
+            <div class="gauge__fill" style="transform: rotate({{county_risk /10}}turn); background: #86e01e;"></div>
+        {% endif %}
+        {% if county_risk == 2  %}
+            <div class="gauge__fill" style="transform: rotate({{county_risk /10}}turn);background: #f2d31b;"></div>
+        {% endif %}
+        {% if county_risk == 3  %}
+        <div class="gauge__fill" style="transform: rotate({{county_risk /10}}turn);background: #f2b01e;"></div>
+        {% endif %}
+        {% if county_risk == 4  %}
+            <div class="gauge__fill" style="transform: rotate({{county_risk /10}}turn);background: #f27011;"></div>
+        {% endif %}
+        {% if county_risk == 5  %}
+            <div class="gauge__fill" style="transform: rotate({{county_risk /10}}turn);background: #f21911;"></div>
+        {% endif %}
+
+            <div class="gauge__cover">{{county_risk}}</div>
+        </div>
+        <div style=" display:flex; font-size: 20px; font-weight: bold; justify-content: center">Risque Global</div>
+        <div style=" display:flex; margin-bottom: 0.1em; font-size: 16px; font-weight: bold; justify-content: center">sur 5</div>
+</div>
+
+<table class="choose">
+    <tbody>
+        {% for risk in risks %}
+        <tr style="margin-top: 1em">
+            <td>
+                {{risk.pollen_name}}
+            </td>
+            <td style="padding-left: 1em">
+                <div class="container">
+                    <div class="progress">
+                        {% if risk.level == 0  %}
+                        <div class="progress-bar" style="width: 5%;background-color: #ffffff;"></div>
+                        {% endif %}
+                        {% if risk.level == 1  %}
+                        <div class="progress-bar" style="width: 20%;background-color: #86e01e;"></div>
+                        {% endif %}
+                        {% if risk.level == 2  %}
+                        <div class="progress-bar" style="width: 40%;background-color: #f2d31b;"></div>
+                        {% endif %}
+                        {% if risk.level == 3  %}
+                        <div class="progress-bar" style="width: 60%;background-color: #f2b01e;"></div>
+                        {% endif %}
+                        {% if risk.level == 4  %}
+                        <div class="progress-bar" style="width: 80%;background-color: #f27011;"></div>
+                        {% endif %}
+                        {% if risk.level == 5  %}
+                        <div class="progress-bar" style="width: 100%;background-color: #f21911;"></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </td>
+
+            <td style="padding-left: 1em">
+                {{risk.level}}/5
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+</html>

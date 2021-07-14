@@ -15,22 +15,23 @@ body > * {
 p {
     display: inline-block;
 }
-form {
+.choose {
     display: flex;
-    border: 2px dashed #000000;
+    border: 2px solid #000000;
     border-radius: 20px;
     padding: 1em;
+    flex-wrap: wrap;
     background: #ffffff;
-    color: #ffb700;
+    color: #000000;
 }
 
-form > div:first-child {
+.choose > div:first-child {
     border-right: 2px dashed #000000;
     padding-right: 1em;
     width: 50%;
 }
 
-form > div:last-child {
+.choose > div:last-child {
     padding-left: 1em;
     flex: 1;
 }
@@ -49,31 +50,11 @@ hr {
     border-top: 2px dashed #000000;
 }
 
-#container_checkbox {
-    margin:0 auto; /* centrage horizontal */
-}
-.checkbox_titre {
-    font-weight:normal;
-}
-.checkbox_box {
-    float: left;
-    width:100%; /* 2 colonnes */
-}
-.checkbox_box p {
-    clear:both;
-    height: 10px;
-}
-.checkbox_box p label {
-    float: left;
-    text-align:center ;
-    margin-right: 20px;
-    width: 120px;
-}
 
 label {
     text-align: center
 }
-.checkbox_box p input {
+p input {
     float: left;
     display: inline-block;
     margin-left: auto;
@@ -85,70 +66,186 @@ input[type="checkbox"].allergen {
 }
 input[type="checkbox"].allergen + label {
     border: 1px solid transparent;
+    cursor: pointer;
 }
+
 input[type="checkbox"].allergen:checked + label {
     border: 1px solid #ffb700;
     border-radius: 10px;
     background: #ffb700;
     color: black;
+    margin: 0.5em;
 }
 
-/* The container must be positioned relative: */
-.custom-select {
-    position: relative;
-    font-family: Arial;
+.step {
+    display: flex;
+    flex-direction: column;
 }
 
-.custom-select select {
-    display: none; /*hide original SELECT element: */
+.title {
+    justify-content: flex-start;
 }
 
-.select-selected {
-    background-color: DodgerBlue;
+.champ_checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: row wrap;
 }
 
-/* Style the arrow inside the select element: */
-.select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
+.champ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
 }
 
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
+.validation {
+    display: flex;
+    justify-content: center;
 }
 
-/* style the items (options), including the selected item: */
-.select-items div,.select-selected {
-    color: #ffffff;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+
+input[type="submit"]{
     cursor: pointer;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    background: #1de228;
+    margin: 10px auto auto;
+    height: 2em;
+    width: 2em;
+    color: black;
+    font-size: 2em;
 }
 
-/* Style items (options): */
-.select-items {
+.select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #000000;
+    width: 20em;
+    height: 3em;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #ffb700;
+    position: relative;
+    justify-content: center;
+}
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.select-style:after {
+    top: 50%;
+    left: 85%;
+    content: " ";
+    height: 0;
+    width: 0;
     position: absolute;
-    background-color: DodgerBlue;
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0);
+    border-top-color: #000000;
+    margin-top: -2px;
+    z-index: 100;
+}
+.select-style select:focus {
+    outline: none;
+}
+
+.container {
+    width: 400px;
+    text-align: center;
+}
+
+.container .progress {
+    margin: auto;
+    width: 400px;
+}
+
+.progress {
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar {
+    height: 16px;
+    border-radius: 4px;
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition: 0.4s linear;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+    transition-property: width, background-color;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.gauge {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 0.3em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    color: #004033;
+    background: white;
+    padding: 0.5em;
+    border: 2px solid #000000;
+    border-radius: 60px;
+}
+
+.gauge__body {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    background: #b4c0be;
+    position: relative;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    overflow: hidden;
+}
+
+.gauge__fill {
+    position: absolute;
     top: 100%;
     left: 0;
-    right: 0;
-    z-index: 99;
+    width: inherit;
+    height: 100%;
+    background: #009578;
+    transform-origin: center top;
+    transform: rotate(0.25turn);
+    transition: transform 0.2s ease-out;
 }
 
-/* Hide the items when the select box is closed: */
-.select-hide {
-    display: none;
-}
+.gauge__cover {
+    width: 75%;
+    height: 150%;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
 
-.select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
+    /* Text */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 25%;
+    box-sizing: border-box;
 }

@@ -3,9 +3,10 @@ extern crate rocket;
 
 mod scrapper;
 
+use crate::scrapper::Risk;
 use rocket::fs::FileServer;
 use rocket::response::content::Html;
-use std::fmt::Write;
+use rocket_dyn_templates::Template;
 
 #[get("/")]
 fn index() -> Html<&'static str> {
@@ -49,10 +50,10 @@ impl PollenParams {
             "Oseille" => self.oseille,
             "Urticacées" => self.urticacees,
             "Aulne" => self.aulne,
-            "Noisettier" => self.noisetier,
+            "Noisetier" => self.noisetier,
             "Plantain" => self.plantain,
             "Olivier" => self.olivier,
-            "Ambroisie" => self.ambroisie,
+            "Ambroisies" => self.ambroisie,
             "Tilleul" => self.tilleul,
             _ => false,
         }
@@ -60,32 +61,35 @@ impl PollenParams {
 }
 
 #[get("/resultat?<form..>")]
-async fn resultat(form: PollenParams) -> String {
-    let mut response = String::new();
+async fn resultat(form: PollenParams) -> Template {
+    #[derive(serde::Serialize)]
+    struct Context<'a> {
+        county: &'a str,
+        county_risk: u8,
+        risks: &'a [&'a Risk],
+    }
+
     let departements = scrapper::scrap().await;
     let dep = departements
         .get(&form.county)
         .expect("Département non connu");
 
-    writeln!(
-        response,
-        "Département : {} => Risque Global [{}/4]",
-        dep.county_name, dep.risk_level
-    )
-    .unwrap();
-    for risk in dep
+    println!("{:?}", dep);
+
+    let pollen = dep
         .risks
         .iter()
         .filter(|risk| form.contains_pollen(&risk.pollen_name))
-    {
-        writeln!(
-            response,
-            "      {} : Risque [{}/4]",
-            risk.pollen_name, risk.level
-        )
-        .unwrap();
-    }
-    response
+        .collect::<Vec<_>>();
+
+    Template::render(
+        "index",
+        &Context {
+            county: &*dep.county_name,
+            county_risk: dep.risk_level,
+            risks: &pollen[..],
+        },
+    )
 }
 
 #[launch]
@@ -93,4 +97,5 @@ fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![index, resultat])
         .mount("/static", FileServer::from("src/static"))
+        .attach(Template::fairing())
 }

@@ -16,8 +16,8 @@ pub struct Departement {
     pub risks: Vec<Risk>,
 }
 
-#[derive(serde::Deserialize, Debug)]
-#[serde(rename_all = "camelCase")]
+#[derive(serde::Deserialize, Debug, serde::Serialize)]
+#[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Risk {
     pub pollen_name: String,
     pub level: u8,
