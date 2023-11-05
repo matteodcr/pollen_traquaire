@@ -5,12 +5,12 @@ mod scrapper;
 
 use crate::scrapper::Risk;
 use rocket::fs::FileServer;
-use rocket::response::content::Html;
+use rocket::response::content::RawHtml;
 use rocket_dyn_templates::Template;
 
 #[get("/")]
-fn index() -> Html<&'static str> {
-    Html(include_str!("index.html"))
+fn index() -> RawHtml<&'static str> {
+    RawHtml(include_str!("index.html"))
 }
 
 #[derive(FromForm)]
