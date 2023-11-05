@@ -3,7 +3,7 @@ extern crate rocket;
 
 mod scrapper;
 
-use crate::scrapper::Risk;
+use crate::scrapper::{DepartementNum, Risk};
 use rocket::fs::FileServer;
 use rocket::response::content::RawHtml;
 use rocket_dyn_templates::Template;
@@ -71,7 +71,7 @@ async fn resultat(form: PollenParams) -> Template {
 
     let departements = scrapper::scrap().await;
     let dep = departements
-        .get(&form.county)
+        .get(&DepartementNum(form.county))
         .expect("Département non connu");
 
     println!("{:?}", dep);
